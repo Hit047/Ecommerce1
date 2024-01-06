@@ -14,7 +14,13 @@ const path = require("path");
 const app = express();
 app.use(express.static("./"));
 app.use(express.json());
-app.use(cors());
+app.use(
+  cors({
+    origin: ["https://deploy-mern=1whq.vercel.app"],
+    methods: ["POST", "GET"],
+    credentials: true,
+  })
+);
 // app.use(express.static(path.join(__dirname, "images")));
 
 app.use((req, res, next) => {
